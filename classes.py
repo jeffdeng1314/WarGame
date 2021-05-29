@@ -1,16 +1,11 @@
 import random
 
-
 # The suits unicode can be found in https://www.compart.com/en/unicode/
 SUITS = ['\u2663', '\u2666', '\u2665', '\u2660']
 FACES = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 DECK = [f'[{s}{f}]' for f in FACES for s in SUITS]
 RANK = dict((DECK[i], i//4) for i in range(len(DECK)))
 
-
-# class Card:
-#     def __init__(self):
-#         self.
 
 # War class
 class War:
@@ -57,6 +52,8 @@ class War:
         else:
             print(self.play(len(deckP1), len(deckP2),
                   cardP1, cardP2) + self.status(war=True))
+
+            # one of the players' deck is empty
             if not self.warTime(deckP1, deckP2):
                 return self.gg(deckP1, deckP2)
 
