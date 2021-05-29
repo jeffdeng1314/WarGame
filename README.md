@@ -29,19 +29,17 @@ python3 main.py
 
 
 **Format**
-The status of the game will be printed at each round and the layout would be:
-_(# of cards remaining)player 1: [card being played] | (# of cards remaining)Player2: [card being played] <round status>_
+1. The status of the game will be printed at each round and the layout would be:
+   _(# of cards remaining)player 1: [card being played] | (# of cards remaining)Player2: [card being played] <round status>_
 
 
 **Corner Cases**
-Since the game is being played by the computer, there's no human interactions involved. However, while I was developing this program, I realized that there will be times where the program
-would run into an infinite loop (cards on stack are appended at the end of the deck, and there's a possiblity where the same cards are appended in the same position repeatedly). In order to
-remove this corner case, I have to shuffle the decks once in a while. I implemented a feature where both decks will get shuffled in a random chance (1/50) at each round.
+1. Since the game is being played by the computer, there's no human interactions involved. However, while I was developing this program, I realized that there will be times where the program would run into an infinite loop (cards on stack are appended at the end of the deck, and there's a possiblity where the same cards are appended in the same position repeatedly). In order to remove this corner case, I have to shuffle the decks once in a while. I implemented a feature where both decks will get shuffled in a random chance (1/50) at each round.
 
 
 **If Given More Time**
-If I was given more time to work on this program, I would:
-1. Have a better object oriented design for this program like classes for card and deck.
-2. Implement human interaction features like a user can shuffle one's deck whenever.
-3. Possibly implement more variations of this game like putting down n card/s facing down instead of 3. The n can be determined by the user.
-4. Implement a score board for both players, so we can keep track of the amount of wins/losses/total games 
+1. If I was given more time to work on this program, I would:
+   a. Have a better object oriented design for this program like classes for card and deck.
+   b. Implement human interaction features like a user can shuffle one's deck whenever.
+   c. Possibly implement more variations of this game like putting down n card/s facing down instead of 3. The n can be determined by the user.
+   d. Implement a score board for both players, so we can keep track of the amount of wins/losses/total games 
