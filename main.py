@@ -9,6 +9,7 @@ def main():
 
     while war.turn(player1, player2):
 
+        # we shuffle by random chance to avoid stuck in an infinite loop
         if random.randint(1, 50) == 20:
             print(f"\n{' ': <15}SHUFFLE TIME\n")
             war.shuffle(player1)

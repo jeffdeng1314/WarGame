@@ -19,7 +19,7 @@ class War:
     def __init__(self):
         deck = DECK.copy()
         self.shuffle(deck)
-        # private variables
+
         self.__deck1 = deck[:26]
         self.__deck2 = deck[26:]
 
@@ -41,7 +41,6 @@ class War:
 
         cardP1, cardP2 = deckP1.pop(0), deckP2.pop(0)
         rankP1, rankP2 = RANK[cardP1], RANK[cardP2]
-
         self.__stack.append(cardP1)
         self.__stack.append(cardP2)
 
@@ -50,13 +49,11 @@ class War:
                   cardP1, cardP2) + self.status(player=1))
             deckP1 += self.__stack
             self.__stack = []
-
         elif rankP1 < rankP2:
             print(self.play(len(deckP1), len(deckP2),
                   cardP1, cardP2) + self.status(player=2))
             deckP2 += self.__stack
             self.__stack = []
-
         else:
             print(self.play(len(deckP1), len(deckP2),
                   cardP1, cardP2) + self.status(war=True))
@@ -70,7 +67,6 @@ class War:
         if len(deckP1) == 0:
             if len(deckP2) == 0:
                 print("The game is a tie! GG y'all")
-
             else:
                 print("Player 2 wins! GG bois")
         else:
@@ -95,7 +91,6 @@ class War:
         return True
 
     # use to print out the cards that are played in console
-
     def play(self, deck1Len, deck2Len, cardP1, cardP2):
         return(
             f"({deck1Len})Player 1: {cardP1: <8}|{' ': <3}({deck2Len})Player 2: {cardP2:<8}")
@@ -106,3 +101,7 @@ class War:
             return(f"Tie! It's war time!!")
 
         return (f"Player {player} takes all the cards.")
+
+
+if __name__ == "__main__":
+    print("Please run the main.py file!")
