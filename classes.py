@@ -76,6 +76,8 @@ class War:
         else:
             print("Player 1 wins! GG bois")
 
+        print(
+            f"Deck remaining for player 1: {len(deckP1)} | player 2: {len(deckP2)} | on the stack: {self.__stack}")
         return False
 
     # both cards with equal values, war time!
@@ -83,12 +85,13 @@ class War:
 
         # each player puts down 3 cards, facing down. \u2327: https://www.compart.com/en/unicode/U+2327
         for _ in range(3):
-            print(self.play(len(deckP1), len(deckP2), '\u2327', '\u2327') +
-                  f"Both players put down a card facing down")
-            self.__stack.append(deckP1.pop(0))
-            self.__stack.append(deckP2.pop(0))
             if len(deckP1) == 0 or len(deckP2) == 0:
                 return False
+
+            self.__stack.append(deckP1.pop(0))
+            self.__stack.append(deckP2.pop(0))
+            print(self.play(len(deckP1), len(deckP2), '\u2327', '\u2327') +
+                  f"Both players put down a card facing down")
         return True
 
     # use to print out the cards that are played in console
