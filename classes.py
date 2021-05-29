@@ -46,18 +46,22 @@ class War:
         self.__stack.append(cardP2)
 
         if rankP1 > rankP2:
-            print(self.play(cardP1, cardP2) + self.status(player=1))
+            print(self.play(len(deckP1), len(deckP2),
+                  cardP1, cardP2) + self.status(player=1))
             deckP1 += self.__stack
             self.__stack = []
 
         elif rankP1 < rankP2:
-            print(self.play(cardP1, cardP2) + self.status(player=2))
+            print(self.play(len(deckP1), len(deckP2),
+                  cardP1, cardP2) + self.status(player=2))
             deckP2 += self.__stack
             self.__stack = []
 
         else:
-            print(self.play(cardP1, cardP2) + self.status(war=True))
-            warTime(deckP1, deckP2)
+            print(self.play(len(deckP1), len(deckP2),
+                  cardP1, cardP2) + self.status(war=True))
+            if not self.warTime(deckP1, deckP2):
+                return self.gg(deckP1, deckP2)
 
         return True
 
@@ -79,16 +83,19 @@ class War:
 
         # each player puts down 3 cards, facing down. \u2327: https://www.compart.com/en/unicode/U+2327
         for _ in range(3):
-            print(self.play('\u2327', '\u2327') +
+            print(self.play(len(deckP1), len(deckP2), '\u2327', '\u2327') +
                   f"Both players put down a card facing down")
             self.__stack.append(deckP1.pop(0))
             self.__stack.append(deckP2.pop(0))
+            if len(deckP1) == 0 or len(deckP2) == 0:
+                return False
+        return True
 
     # use to print out the cards that are played in console
 
-    def play(self, cardP1, cardP2):
+    def play(self, deck1Len, deck2Len, cardP1, cardP2):
         return(
-            f"Player 1: {cardP1}  |   Player 2: {cardP2: <8}")
+            f"({deck1Len})Player 1: {cardP1: <8}|{' ': <3}({deck2Len})Player 2: {cardP2:<8}")
 
     # use to print out the status of the current round in the console
     def status(self, player=0, war=False):
