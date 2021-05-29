@@ -6,7 +6,8 @@ def main():
 
     player1, player2 = war.getDecks()
 
-    print(player1)
+    while war.turn(player1, player2):
+        continue
 
 
 if __name__ == '__main__':
